@@ -20,7 +20,7 @@
 Average daily taxi requests on weekdays by district number
 ![Image 1](/img/avg_pax_per_weekday.png)
 
-Average daily taxi requests on weekdays by district number
+Average daily taxi requests on weekends by district number
 ![Image 2](/img/avg_pax_per_weekend.png)
 
 ## Analisys
