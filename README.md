@@ -25,6 +25,14 @@
 
 ![Image 2](/img/avg_pax_per_weekend.png)
 
+<p align='center'><b>Daily taxi requests for district 19 (North East)</b></p>
+
+![Image 1](/img/dist19_avg_pax_per_day.png)
+
+<p align='center'><b>Average intraday requests for district 19 (North East)</b></p>
+
+![Image 2](/img/dist19_intraday.png)
+
 ## Analisys
 
 - [baseline model]
