@@ -17,10 +17,10 @@
 * [description of data gathering process (link to the library)]
 * [EDA and data preparation]
 
-Average daily taxi requests on weekdays by district number
+<p align='center'><b>Average daily taxi requests on weekdays by district number</b></p>
 ![Image 1](/img/avg_pax_per_weekday.png)
 
-Average daily taxi requests on weekends by district number
+<p align='center'><b>Average daily taxi requests on weekends by district number</b></p>
 ![Image 2](/img/avg_pax_per_weekend.png)
 
 ## Analisys
