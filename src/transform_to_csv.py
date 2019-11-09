@@ -12,6 +12,10 @@ import telethon.tl.types
 import pandas as pd
 import numpy as np
 import csv
+import os
+
+csv_encoding = 'utf-8-sig'
+csv_err_handl = 'backslashreplace'
 
 file_names = ['SGHitch_msg.pkl']
 output_names = ['SGHitch']
@@ -103,7 +107,7 @@ def read_from_pkl(file_name, new_file_name, n = -1):
     block = 0
     chunk = []
     with open(file_name, 'rb') as fl_o:
-        with open(new_file_name,"w") as csvfileOut:
+        with open(new_file_name,"w", encoding=csv_encoding, errors=csv_err_handl) as csvfileOut:
             
             writer = csv.writer(csvfileOut,  delimiter=',',quotechar='"')
             # writing headers
@@ -181,7 +185,12 @@ def file_size(file_name):
 
 if __name__ == "__main__":
 
+    for i in range(len(file_names)):
+        file_names[i] = os.path.join(os.path.dirname(__file__).replace('src','data'),file_names[i])
+    print(file_names)
+
     new_file_names = [i[:-3] + 'csv' for i in file_names]
+    print(new_file_names)
 
     for i in range(len(file_names)):
         file_names[i] = Input_File(file_names[i])
@@ -191,7 +200,7 @@ if __name__ == "__main__":
         
         print('Test convertion. Reading and saving {} entries.... (file "{}")'.format(N_test,test_file_name))
         read_from_pkl(file_names[i], test_file_name, N_test)
-        test = pd.read_csv(test_file_name)
+        test = pd.read_csv(test_file_name, encoding=csv_encoding)
         print(test.head(),"\n")
         print(test.tail(),'\n')
         print(test.describe(),"\n")
@@ -200,7 +209,8 @@ if __name__ == "__main__":
 
         print('Saving {} to CSV: {}'.format(file_names[i], new_file_names[i]))
         read_from_pkl(file_names[i], new_file_names[i])
-        data_df = pd.read_csv(file_names[i])
+        with open(file_names[i], encoding=csv_encoding, errors=csv_err_handl) as file_o:
+            data_df = pd.read_csv(file_o)
 
         # Getting rid of rows processed with errors: data = 0 or -1
 
