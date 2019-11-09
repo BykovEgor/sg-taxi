@@ -52,6 +52,7 @@ def parce_mess(row):
     row['drop'  ] = parce_drop(mess)
     row['pax'   ] = parce_pax( mess)
     row['dist'  ] = parce_dist(row['pick'])
+    row['drop_d'] = parce_dist(row['drop'])
 
     return row
 
